@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="&lt;= BookShelf Specification =&gt;" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-12T21:33:42" hostname="softport" time="0.065">
+<testsuite name="&lt;= BookShelf Specification =&gt;" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-12T21:53:59" hostname="softport" time="0.034">
   <properties/>
-  <testcase name="books_in_shelf_are_in_insertion_order_after_calling_arrange()" classname="bookstoread.BookShelfSpec" time="0.065"/>
+  <testcase name="books_in_shelf_are_in_insertion_order_after_calling_arrange()" classname="bookstoread.BookShelfSpec" time="0.034"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
