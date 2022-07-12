@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="&lt;= BookShelf Specification =&gt;" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-12T21:53:59" hostname="softport" time="0.034">
+<testsuite name="&lt;= BookShelf Specification =&gt;" tests="7" skipped="1" failures="0" errors="0" timestamp="2022-07-12T22:06:55" hostname="softport" time="0.042">
   <properties/>
-  <testcase name="books_in_shelf_are_in_insertion_order_after_calling_arrange()" classname="bookstoread.BookShelfSpec" time="0.034"/>
+  <testcase name="book_shelf_contains_two_books_when_two_books_added()" classname="bookstoread.BookShelfSpec" time="0.02"/>
+  <testcase name="shelfEmptyWhenNoBookAdded()" classname="bookstoread.BookShelfSpec" time="0.001"/>
+  <testcase name="books_in_shelf_are_in_insertion_order_after_calling_arrange()" classname="bookstoread.BookShelfSpec" time="0.003"/>
+  <testcase name="empty_book_shelf_when_add_is_called_without_books()" classname="bookstoread.BookShelfSpec" time="0.001"/>
+  <testcase name="book_shelf_arranged_by_book_title()" classname="bookstoread.BookShelfSpec" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="book_shelf_arranged_by_user_provided_criterion()" classname="bookstoread.BookShelfSpec" time="0.001"/>
+  <testcase name="books_returned_from_bookshelf_is_immutable()" classname="bookstoread.BookShelfSpec" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
