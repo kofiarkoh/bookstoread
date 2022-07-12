@@ -8,6 +8,7 @@ import org.junit.jupiter.api.*;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,16 +36,16 @@ public class BookShelfSpec {
     @Test
     public void shelfEmptyWhenNoBookAdded() throws Exception{
        // BookShelf shelf = new BookShelf();
-        List<String> books = bookShelf.books();
+        List<Book> books = bookShelf.books();
         assertTrue(books.isEmpty(), "BookShelf should be empty.");
     }
 
     @Test
     void book_shelf_contains_two_books_when_two_books_added(){
        // BookShelf bookShelf = new BookShelf();
-        bookShelf.add("Effective Java","Code Complete");
+        bookShelf.add(effectiveJava,codeComplete);
      //   bookShelf.add();
-        List<String> books = bookShelf.books();
+        List<Book> books = bookShelf.books();
         assertEquals(2,books.size(),"book shelf should have 2 books.");
     }
 
@@ -52,17 +53,17 @@ public class BookShelfSpec {
     void empty_book_shelf_when_add_is_called_without_books(){
       //  BookShelf bookShelf = new BookShelf();
         bookShelf.add();
-        List<String> books = bookShelf.books();
+        List<Book> books = bookShelf.books();
         assertTrue(books.isEmpty(),"BooksShelf should be empty");
     }
 
     @Test
     void books_returned_from_bookshelf_is_immutable(){
      //   BookShelf bookShelf = new BookShelf();
-        bookShelf.add("Effective Java","Code Complete");
-        List<String> books = bookShelf.books();
+        bookShelf.add(effectiveJava,codeComplete);
+        List<Book> books = bookShelf.books();
         try{
-            books.add("the mythical");
+            books.add(mythicalManMonth);
             fail("should not be able to add book to books");
         }
         catch (Exception e){
@@ -74,8 +75,8 @@ public class BookShelfSpec {
 
     @Test
     void book_shelf_arranged_by_book_title(){
-        bookShelf.add("Effective Java", "Code Complete","The Mythical Man-Month");
-        List<String> books = bookShelf.arrange();
+        bookShelf.add(effectiveJava,codeComplete,mythicalManMonth);
+        List<Book> books = bookShelf.arrange();
         assertEquals(Arrays.asList("Code Complete", "Effective Java", "The Mythical Man-Month"), books,
                 "books should be arranged lexicographically by title");
 
@@ -83,10 +84,19 @@ public class BookShelfSpec {
 
     @Test
     void books_in_shelf_are_in_insertion_order_after_calling_arrange(){
-        bookShelf.add("Effective Java", "Code Complete","The Mythical Man-Month");
+        bookShelf.add(effectiveJava,codeComplete,mythicalManMonth);
         bookShelf.arrange();
-        List<String> books = bookShelf.books();
-        assertEquals(Arrays.asList("Effective Java", "Code Complete","The Mythical Man-Month"),books,
+        List<Book   > books = bookShelf.books();
+        assertEquals(Arrays.asList(effectiveJava,codeComplete,mythicalManMonth),books,
                 "Books in bookshelf are not in insertion order");
+    }
+
+    @Test
+    void book_shelf_arranged_by_user_provided_criterion(){
+       bookShelf.add(effectiveJava,codeComplete,mythicalManMonth);
+        List<Book> books = bookShelf.arrange(Comparator.<Book>naturalOrder().reversed());
+        assertEquals(Arrays.asList(mythicalManMonth,effectiveJava,codeComplete),books,
+                "Books in a bookshelf are arranged in descending order of book title");
+
     }
 }

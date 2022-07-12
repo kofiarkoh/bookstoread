@@ -4,18 +4,22 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class BookShelf {
-    private final List<String> books = new ArrayList<>();
-    public List<String> books(){
+    private final List<Book> books = new ArrayList<>();
+    public List<Book> books(){
         return Collections.unmodifiableList(this.books);
     }
 
-    public void add(String... books){
+    public void add(Book... books){
         Arrays.stream(books).forEach( book -> this.books.add(book));
     }
 
-    public List<String> arrange() {
+    public List<Book> arrange() {
         //books.sort(Comparator.naturalOrder());
         return books.stream().sorted().collect(Collectors.toList());
 
+    }
+
+    public List<Book> arrange(Comparator<Book> criteria) {
+        return books.stream().sorted(criteria).collect(Collectors.toList());
     }
 }
