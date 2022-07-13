@@ -37,43 +37,56 @@ public class BookShelfSpec {
     }
 
 
-    @Test
-    public void shelfEmptyWhenNoBookAdded() throws Exception{
-       // BookShelf shelf = new BookShelf();
-        List<Book> books = bookShelf.books();
-        assertTrue(books.isEmpty(), "BookShelf should be empty.");
-    }
-
-    @Test
-    void book_shelf_contains_two_books_when_two_books_added(){
-       // BookShelf bookShelf = new BookShelf();
-        bookShelf.add(effectiveJava,codeComplete);
-     //   bookShelf.add();
-        List<Book> books = bookShelf.books();
-        assertEquals(2,books.size(),"book shelf should have 2 books.");
-    }
-
-    @Test
-    void empty_book_shelf_when_add_is_called_without_books(){
-      //  BookShelf bookShelf = new BookShelf();
-        bookShelf.add();
-        List<Book> books = bookShelf.books();
-        assertTrue(books.isEmpty(),"BooksShelf should be empty");
-    }
-
-    @Test
-    void books_returned_from_bookshelf_is_immutable(){
-     //   BookShelf bookShelf = new BookShelf();
-        bookShelf.add(effectiveJava,codeComplete);
-        List<Book> books = bookShelf.books();
-        try{
-            books.add(mythicalManMonth);
-            fail("should not be able to add book to books");
+    @Nested
+    @DisplayName("Is Empty")
+    class IsEmpty{
+        @Test
+        public void shelfEmptyWhenNoBookAdded() throws Exception{
+            // BookShelf shelf = new BookShelf();
+            List<Book> books = bookShelf.books();
+            assertTrue(books.isEmpty(), "BookShelf should be empty.");
         }
-        catch (Exception e){
-            assertTrue(e instanceof UnsupportedOperationException,"Should throw UnsupportedOperationException");
+
+        @Test
+        void empty_book_shelf_when_add_is_called_without_books(){
+            //  BookShelf bookShelf = new BookShelf();
+            bookShelf.add();
+            List<Book> books = bookShelf.books();
+            assertTrue(books.isEmpty(),"BooksShelf should be empty");
+        }
+
+    }
+
+    @Nested
+    @DisplayName("after adding books")
+    class BooksAreAdded{
+        @Test
+        void book_shelf_contains_two_books_when_two_books_added(){
+            // BookShelf bookShelf = new BookShelf();
+            bookShelf.add(effectiveJava,codeComplete);
+            //   bookShelf.add();
+            List<Book> books = bookShelf.books();
+            assertEquals(2,books.size(),"book shelf should have 2 books.");
+        }
+        @Test
+        void books_returned_from_bookshelf_is_immutable(){
+            //   BookShelf bookShelf = new BookShelf();
+            bookShelf.add(effectiveJava,codeComplete);
+            List<Book> books = bookShelf.books();
+            try{
+                books.add(mythicalManMonth);
+                fail("should not be able to add book to books");
+            }
+            catch (Exception e){
+                assertTrue(e instanceof UnsupportedOperationException,"Should throw UnsupportedOperationException");
+            }
         }
     }
+
+
+
+
+
 
     /* FEATURE TWO */
 
