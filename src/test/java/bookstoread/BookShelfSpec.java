@@ -12,6 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("<= BookShelf Specification =>")
 public class BookShelfSpec {
@@ -73,6 +74,7 @@ public class BookShelfSpec {
 
     /* FEATURE TWO */
 
+    @Disabled("needs to implement comparator")
     @Test
     void book_shelf_arranged_by_book_title(){
         bookShelf.add(effectiveJava,codeComplete,mythicalManMonth);
@@ -94,9 +96,12 @@ public class BookShelfSpec {
     @Test
     void book_shelf_arranged_by_user_provided_criterion(){
        bookShelf.add(effectiveJava,codeComplete,mythicalManMonth);
-        List<Book> books = bookShelf.arrange(Comparator.<Book>naturalOrder().reversed());
-        assertEquals(Arrays.asList(mythicalManMonth,effectiveJava,codeComplete),books,
-                "Books in a bookshelf are arranged in descending order of book title");
+      //  List<Book> books = bookShelf.arrange(Comparator.<Book>naturalOrder().reversed());
+       /* assertEquals(Arrays.asList(mythicalManMonth,effectiveJava,codeComplete),books,
+                "Books in a bookshelf are arranged in descending order of book title");*/
+        Comparator<Book> reversed = Comparator.<Book>naturalOrder().reversed();
+        List<Book> books = bookShelf.arrange(reversed);
+        assertThat(books).isSortedAccordingTo(reversed);
 
     }
 }
