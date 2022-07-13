@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="&lt;= BookShelf Specification =&gt;" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-13T15:57:40" hostname="softport" time="0.065">
+<testsuite name="&lt;= BookShelf Specification =&gt;" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-13T23:27:54" hostname="softport" time="0.114">
   <properties/>
-  <testcase name="books inside bookshelf are grouped by publication year" classname="bookstoread.BookShelfSpec" time="0.065"/>
+  <testcase name="books inside bookshelf are grouped by user provided criteria -- by author name" classname="bookstoread.BookShelfSpec" time="0.114"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

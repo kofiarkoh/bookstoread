@@ -32,7 +32,7 @@ public class BookShelfSpec {
                 LocalDate.of(2004, Month.JUNE, 9));
         mythicalManMonth = new Book("The Mythical Man-Month", "Frederick " +
                 "Phillips Brooks", LocalDate.of(1975, Month.JANUARY, 1));
-        cleanCode = new Book("Clean Code", "Lawrence", LocalDate.of(2008,
+        cleanCode = new Book("Clean Code", "Robert C. Martin", LocalDate.of(2008,
                 Month.JANUARY, 1));
     }
 
@@ -121,6 +121,26 @@ public class BookShelfSpec {
         );
         assertThat(booksByPublicationYear).containsKey(Year.of(1975)).containsValues(
                 Collections.singletonList(codeComplete)
+        );
+    }
+
+    @Test
+    @DisplayName("books inside bookshelf are grouped by user provided criteria -- by author name")
+    void group_books_by_user_criteria(){
+        bookShelf.add(effectiveJava,codeComplete,mythicalManMonth,cleanCode);
+        Map<String,List<Book>> booksByAuthor = bookShelf.groupBy(Book::getAuthor);
+        
+        assertThat(booksByAuthor).containsKey("Joshua Bloch").containsValues(
+                Collections.singletonList(effectiveJava)
+        );
+        assertThat(booksByAuthor).containsKey("Steve McConnel").containsValues(
+                Collections.singletonList(codeComplete)
+        );
+        assertThat(booksByAuthor).containsKey("Frederick Phillips Brooks").containsValues(
+                Collections.singletonList(mythicalManMonth)
+        );
+        assertThat(booksByAuthor).containsKey("Robert C. Martin").containsValues(
+                Collections.singletonList(cleanCode)
         );
     }
 }
