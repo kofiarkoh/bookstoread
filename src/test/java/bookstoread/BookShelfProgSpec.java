@@ -5,12 +5,14 @@ import org.example.BookShelf;
 import org.example.Progress;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 import java.util.Map;
 
 @DisplayName("A bookshelf progress")
@@ -62,5 +64,23 @@ public class BookShelfProgSpec {
         Progress progress = bookShelf.progress();
         assertThat(progress.getCompleted()).isEqualTo(40);
         assertThat(progress.getToRead()).isEqualTo(60);
+    }
+
+
+    @Nested
+    @DisplayName("bookshelf searc")
+    class BookShelfSearch{
+
+        @BeforeEach
+        void setup(){
+            bookShelf.add(codeComplete,effectiveJava,mythicalManMonth,cleanCode);
+        }
+
+        @Test
+        @DisplayName("should find book with title containing test")
+        void should_find_book_with_title_containing_test(){
+            List<Book> books = bookShelf.findBookByTitle("code");
+            assertThat(books.size()).isEqualTo(2);
+        }
     }
 }
