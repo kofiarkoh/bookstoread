@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="&lt;= BookShelf Specification =&gt;" tests="5" skipped="1" failures="0" errors="0" timestamp="2022-07-13T23:35:08" hostname="softport" time="0.106">
+<testsuite name="&lt;= BookShelf Specification =&gt;" tests="5" skipped="1" failures="0" errors="0" timestamp="2022-07-14T19:06:31" hostname="softport" time="0.122">
   <properties/>
-  <testcase name="books_in_shelf_are_in_insertion_order_after_calling_arrange()" classname="bookstoread.BookShelfSpec" time="0.031"/>
-  <testcase name="book_shelf_arranged_by_book_title()" classname="bookstoread.BookShelfSpec" time="0.0">
+  <testcase name="books_in_shelf_are_in_insertion_order_after_calling_arrange()" classname="bookstoread.BookShelfSpec" time="0.034"/>
+  <testcase name="book_shelf_arranged_by_book_title()" classname="bookstoread.BookShelfSpec" time="0.002">
     <skipped/>
   </testcase>
-  <testcase name="books inside bookshelf are grouped by user provided criteria -- by author name" classname="bookstoread.BookShelfSpec" time="0.05"/>
-  <testcase name="book_shelf_arranged_by_user_provided_criterion()" classname="bookstoread.BookShelfSpec" time="0.01"/>
-  <testcase name="books inside bookshelf are grouped by publication year" classname="bookstoread.BookShelfSpec" time="0.007"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="books inside bookshelf are grouped by user provided criteria -- by author name" classname="bookstoread.BookShelfSpec" time="0.063"/>
+  <testcase name="book_shelf_arranged_by_user_provided_criterion()" classname="bookstoread.BookShelfSpec" time="0.007"/>
+  <testcase name="books inside bookshelf are grouped by publication year" classname="bookstoread.BookShelfSpec" time="0.008"/>
+  <system-out><![CDATA[provided paramenterjava.util.Map<java.lang.String, org.example.Book>
+return asnwer true
+provided paramenterjava.util.Map<java.lang.String, org.example.Book>
+return asnwer true
+provided paramenterjava.util.Map<java.lang.String, org.example.Book>
+return asnwer true
+provided paramenterjava.util.Map<java.lang.String, org.example.Book>
+return asnwer true
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
